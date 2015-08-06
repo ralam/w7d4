@@ -8,14 +8,4 @@ NewsReader.Collections.Entries = Backbone.Collection.extend({
   generateUrl: function () {
     return this.feed.url() + '/entries';
   },
-
-  getOrFetch: function (id) {
-    var model = this.get(id);
-    if(!model) {
-      model = new NewsReader.Models.Entry();
-      this.add(model);
-    }
-    model.fetch();
-    return model;
-  },
 });
