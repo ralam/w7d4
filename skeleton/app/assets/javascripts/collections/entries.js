@@ -1,3 +1,11 @@
 NewsReader.Collections.Entries = Backbone.Collection.extend({
-  url: 'api/feeds/:feed_id/entries' //Check backbone nested collection
+  url: this.generateUrl,
+
+  initialize: function (options) {
+    this.feed = options.feed;
+  },
+
+  generateUrl: function () {
+    return this.feed.url() + '/entries';
+  },
 });
