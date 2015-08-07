@@ -5,7 +5,7 @@ NewsReader.Views.FeedForm = Backbone.View.extend({
   className: 'form-background',
 
   events: {
-    "click button.create-feed": "saveModel",
+    "submit .form": "saveModel",
     "click button.close": "closeForm"
   },
 
@@ -15,7 +15,15 @@ NewsReader.Views.FeedForm = Backbone.View.extend({
   },
 
   saveModel: function (e) {
-    e.preventDefault;
+    e.preventDefault();
+    var formData = $(e.currentTarget).serializeJSON();
+    var model = new NewsReader.Models.Feed();
+    debugger;
+    model.save(formData.feed, {
+      success: function (model) {
+        this.collection.add(model);
+      }.bind(this)
+    });
     this.closeForm();
   },
 

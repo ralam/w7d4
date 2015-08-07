@@ -25,7 +25,7 @@ NewsReader.Routers.Router = Backbone.Router.extend({
   },
 
   addFeed: function () {
-    var view = new NewsReader.Views.FeedForm();
+    var view = new NewsReader.Views.FeedForm({collection: this.feeds});
     $('body').prepend(view.render().$el);
   },
 
