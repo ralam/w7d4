@@ -36,5 +36,16 @@ div.feed-form {
 
 form {
   position: relative;
-  margin: auto
+  margin: auto;
+}
+
+input.button {
+  width: 100%;
+  font-size: 16px;
+  margin: 5px;
+}
+
+
+input.button:hover {
+  background-color: #ccc;
 }

@@ -6,7 +6,7 @@ NewsReader.Views.FeedForm = Backbone.View.extend({
 
   events: {
     "submit .form": "saveModel",
-    "click button.close": "closeForm"
+    "click input.close": "closeForm"
   },
 
   render: function(){
@@ -18,16 +18,16 @@ NewsReader.Views.FeedForm = Backbone.View.extend({
     e.preventDefault();
     var formData = $(e.currentTarget).serializeJSON();
     var model = new NewsReader.Models.Feed();
-    debugger;
     model.save(formData.feed, {
       success: function (model) {
         this.collection.add(model);
       }.bind(this)
     });
-    this.closeForm();
+    this.closeForm(e);
   },
 
-  closeForm: function () {
+  closeForm: function (e) {
+    e.preventDefault();
     this.remove();
     Backbone.history.navigate("", { trigger: true });
   }
