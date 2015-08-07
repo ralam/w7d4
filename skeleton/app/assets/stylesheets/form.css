@@ -20,6 +20,7 @@ div.form-background {
 }
 
 div.feed-form {
+  display: none;
   position: absolute;
   margin: auto;
   top: 0;
